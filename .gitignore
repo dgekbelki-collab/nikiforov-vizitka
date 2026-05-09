@@ -1,0 +1,16 @@
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Editors
+*.swp
+*~
+.vscode/
+.idea/
+
+# Memory (личные заметки Claude Code, не для публикации)
+.claude/

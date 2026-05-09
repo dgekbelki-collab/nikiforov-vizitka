@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Никифоров.Code — платформа разработки на AI и экспертизе</title>
+<meta name="description" content="Никифоров.Code — платформа разработки ПО, объединяющая искусственный интеллект и экспертные знания. Быстрее, качественнее, эффективнее в команде.">
+
+<meta property="og:title" content="Никифоров.Code">
+<meta property="og:description" content="Платформа разработки ПО, объединяющая ИИ и экспертные знания.">
+<meta property="og:type" content="website">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg:        #07070b;
+    --bg-soft:   #11121a;
+    --bg-card:   rgba(255,255,255,0.03);
+    --line:      rgba(255,255,255,0.08);
+    --text:      #f0f0f0;
+    --muted:     #8a8a95;
+    --accent-1:  #00d4ff;
+    --accent-2:  #b14cff;
+    --accent-3:  #ff3df0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.55;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at 12% -5%, rgba(0, 212, 255, 0.18), transparent 55%),
+      radial-gradient(ellipse at 90% 10%, rgba(177, 76, 255, 0.16), transparent 50%),
+      radial-gradient(ellipse at 50% 110%, rgba(255, 61, 240, 0.10), transparent 55%);
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* HEADER */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .logo span {
+    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.18s ease, border-color 0.18s ease;
+  }
+  .nav-cta:hover {
+    background: rgba(177, 76, 255, 0.10);
+    border-color: rgba(177, 76, 255, 0.4);
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 60px;
+    text-align: center;
+    animation: fadeUp 0.8s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.03);
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--accent-1);
+    margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-1);
+    box-shadow: 0 0 12px var(--accent-1);
+  }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 0 28px rgba(177, 76, 255, 0.35));
+    animation: gradientShift 8s ease-in-out infinite;
+  }
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+  }
+  .hero p.lead {
+    font-size: clamp(16px, 1.6vw, 19px);
+    color: var(--muted);
+    max-width: 680px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 36px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    border: none;
+    color: #07070b;
+    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    background-size: 200% 200%;
+    box-shadow: 0 12px 32px rgba(177, 76, 255, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-position 0.4s ease;
+    position: relative;
+  }
+  .cta:hover {
+    background-position: 100% 50%;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 44px rgba(0, 212, 255, 0.45);
+  }
+  .cta:active { transform: translateY(0); }
+  .cta svg { width: 18px; height: 18px; fill: currentColor; }
+
+  .cta-pulse {
+    position: relative;
+    isolation: isolate;
+  }
+  .cta-pulse::before,
+  .cta-pulse::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    z-index: -1;
+    opacity: 0.55;
+    animation: pulseRing 2.4s ease-out infinite;
+  }
+  .cta-pulse::after { animation-delay: 1.2s; }
+  @keyframes pulseRing {
+    0%   { transform: scale(1);    opacity: 0.55; }
+    80%  { transform: scale(1.18); opacity: 0; }
+    100% { transform: scale(1.18); opacity: 0; }
+  }
+
+  /* SECTION */
+  .section { padding: 80px 0; }
+  .section-head {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+  .section-head h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .section-head p {
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto;
+    font-size: 16px;
+  }
+
+  /* BENEFITS */
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    list-style: none;
+  }
+  .benefit {
+    position: relative;
+    padding: 32px 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    backdrop-filter: blur(8px);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    overflow: hidden;
+  }
+  .benefit::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-2), transparent);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .benefit:hover {
+    transform: translateY(-4px);
+    border-color: rgba(177, 76, 255, 0.35);
+    background: rgba(177, 76, 255, 0.04);
+  }
+  .benefit:hover::before { opacity: 1; }
+
+  .benefit .ic {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.18), rgba(177, 76, 255, 0.18));
+    border: 1px solid rgba(177, 76, 255, 0.25);
+    color: var(--accent-1);
+    margin-bottom: 22px;
+  }
+  .benefit .ic svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .benefit h3 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .benefit p {
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  /* AUDIENCE */
+  .audience {
+    background:
+      linear-gradient(180deg, rgba(177, 76, 255, 0.05), transparent),
+      var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 56px 48px;
+  }
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+    align-items: start;
+  }
+  .audience-grid h3 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+  }
+  .audience-grid ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .audience-grid li {
+    position: relative;
+    padding-left: 30px;
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .audience-grid li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 6px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    box-shadow: 0 0 12px rgba(177, 76, 255, 0.5);
+  }
+  .audience-grid li::after {
+    content: "";
+    position: absolute;
+    left: 5px; top: 10px;
+    width: 8px;
+    height: 4px;
+    border-left: 2px solid #07070b;
+    border-bottom: 2px solid #07070b;
+    transform: rotate(-45deg);
+  }
+  .audience-grid li b {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .audience-grid li span {
+    color: var(--muted);
+    display: block;
+    margin-top: 2px;
+    font-size: 13.5px;
+  }
+
+  /* FINAL CTA */
+  .final {
+    text-align: center;
+    padding: 100px 0 120px;
+  }
+  .final h2 {
+    font-size: clamp(30px, 4.4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    line-height: 1.1;
+  }
+  .final p {
+    color: var(--muted);
+    margin-bottom: 36px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+    color: var(--muted);
+    font-size: 13.5px;
+    text-align: center;
+  }
+  footer a { color: var(--text); text-decoration: none; }
+  footer a:hover { color: var(--accent-1); }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .benefits { grid-template-columns: 1fr; }
+    .audience { padding: 36px 24px; }
+    .audience-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .hero { padding: 56px 0 40px; }
+    .section { padding: 56px 0; }
+    .final { padding: 72px 0 96px; }
+    .nav-cta { padding: 9px 14px; font-size: 13px; }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 0 18px; }
+    .cta { width: 100%; padding: 16px 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <header class="container">
+    <nav class="nav">
+      <a class="logo" href="#"><span>Никифоров</span>.Code</a>
+      <a class="nav-cta" href="#cta">Попробовать</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <span class="eyebrow">AI · Code · Expertise</span>
+      <h1>Никифоров.Code</h1>
+      <p class="lead">
+        Инновационная платформа для разработки программного обеспечения, объединяющая искусственный интеллект и экспертные знания для создания качественных решений.
+      </p>
+      <a class="cta cta-pulse" href="#cta">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        Начать бесплатно
+      </a>
+    </section>
+
+    <section class="container section">
+      <div class="section-head">
+        <h2>Три причины выбрать Никифоров.Code</h2>
+        <p>Не просто ускоритель кода — экосистема, в которой AI и инженер работают вместе.</p>
+      </div>
+
+      <ul class="benefits">
+        <li class="benefit">
+          <div class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </div>
+          <h3>Скорость разработки</h3>
+          <p>Автоматизация рутинных задач и интеллектуальные подсказки прямо в редакторе — пишете код быстрее, без переключений.</p>
+        </li>
+
+        <li class="benefit">
+          <div class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Качество кода</h3>
+          <p>Встроенная проверка ошибок и оптимизация — стабильный, читаемый и безопасный код с первого захода.</p>
+        </li>
+
+        <li class="benefit">
+          <div class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><circle cx="17" cy="7" r="3"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          </div>
+          <h3>Эффективность команды</h3>
+          <p>Лёгкая интеграция и масштабирование проектов — команда работает синхронно, без потерь и блокировок.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="container section">
+      <div class="audience">
+        <div class="audience-grid">
+          <div>
+            <h3>Кому подходит</h3>
+            <ul>
+              <li>
+                <b>Стартапам</b>
+                <span>Запускают MVP за дни, а не месяцы — без раздутого бюджета на разработку.</span>
+              </li>
+              <li>
+                <b>Продуктовым командам</b>
+                <span>Сокращают цикл от идеи до релиза и держат планку качества под нагрузкой.</span>
+              </li>
+              <li>
+                <b>Фрилансерам и агентствам</b>
+                <span>Берут больше проектов одновременно без падения сроков и нервов.</span>
+              </li>
+              <li>
+                <b>Корпоративным разработчикам</b>
+                <span>Стандартизируют код-стайл и снижают число багов в сложных репозиториях.</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Почему это выгодно</h3>
+            <ul>
+              <li>
+                <b>Меньше времени на рутину</b>
+                <span>AI пишет повторяющиеся куски — вы решаете архитектурные задачи.</span>
+              </li>
+              <li>
+                <b>Меньше багов в проде</b>
+                <span>Проверки на лету ловят ошибки до коммита, а не после жалобы клиента.</span>
+              </li>
+              <li>
+                <b>Прозрачность для команды</b>
+                <span>Единые стандарты и общий контекст проекта — онбординг ускоряется в разы.</span>
+              </li>
+              <li>
+                <b>Окупается с первого спринта</b>
+                <span>Экономия часов разработчика на одном спринте перекрывает стоимость подписки.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container final" id="cta">
+      <h2>Готовы писать код быстрее?</h2>
+      <p>Подключите Никифоров.Code и почувствуйте разницу уже на первом проекте — без карты, без долгих регистраций.</p>
+      <a class="cta cta-pulse" href="https://t.me/evgeny_nikiforov" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+        Начать бесплатно
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Никифоров.Code · <a href="https://t.me/evgeny_nikiforov" target="_blank" rel="noopener">Telegram</a> · <a href="mailto:dgekbelki@gmail.com">dgekbelki@gmail.com</a>
+    </div>
+  </footer>
+
+</body>
+</html>
