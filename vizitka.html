@@ -15,14 +15,14 @@
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg:        #0a0a0a;
-    --bg-soft:   #11121a;
+    --bg:        #0b1020;
+    --bg-soft:   #141a35;
     --line:      rgba(255,255,255,0.08);
-    --text:      #f0f0f0;
-    --muted:     #8a8a95;
-    --accent-1:  #00d4ff;
-    --accent-2:  #b14cff;
-    --accent-3:  #ff3df0;
+    --text:      #f5f6fb;
+    --muted:     #9aa3c2;
+    --blue:      #5b7fff;
+    --blue-2:    #7c98ff;
+    --blue-soft: rgba(91, 127, 255, 0.14);
   }
 
   body {
@@ -52,8 +52,8 @@
     inset: 0;
     pointer-events: none;
     background:
-      radial-gradient(ellipse at 15% 0%, rgba(0, 212, 255, 0.10), transparent 55%),
-      radial-gradient(ellipse at 85% 100%, rgba(255, 61, 240, 0.08), transparent 55%);
+      radial-gradient(ellipse 80% 50% at 15% 0%, rgba(91, 127, 255, 0.16), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 100%, rgba(91, 127, 255, 0.08), transparent 60%);
     z-index: 0;
   }
 
@@ -87,7 +87,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.6) 100%);
+    background: linear-gradient(135deg, rgba(11,16,32,0) 55%, rgba(11,16,32,0.6) 100%);
   }
 
   .info {
@@ -103,7 +103,7 @@
     font-size: 11px;
     letter-spacing: 2.4px;
     text-transform: uppercase;
-    color: var(--accent-1);
+    color: var(--blue);
     font-weight: 600;
     margin-bottom: 18px;
   }
@@ -111,7 +111,7 @@
     content: "";
     width: 28px;
     height: 1px;
-    background: var(--accent-1);
+    background: var(--blue);
     opacity: 0.6;
   }
 
@@ -121,13 +121,7 @@
     letter-spacing: -0.02em;
     line-height: 1.08;
     margin-bottom: 10px;
-    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    filter: drop-shadow(0 0 18px rgba(177, 76, 255, 0.35));
+    color: var(--text);
   }
 
   .role {
@@ -164,8 +158,8 @@
     display: grid;
     place-items: center;
     border-radius: 8px;
-    background: rgba(0, 212, 255, 0.12);
-    color: var(--accent-1);
+    background: var(--blue-soft);
+    color: var(--blue);
     font-weight: 700;
     font-size: 13px;
     letter-spacing: 0.5px;
@@ -202,7 +196,7 @@
     transition: background 0.18s ease;
   }
   .contact:hover {
-    background: rgba(177, 76, 255, 0.08);
+    background: rgba(91, 127, 255, 0.08);
   }
   .contact .ic {
     flex-shrink: 0;
@@ -211,13 +205,13 @@
     display: grid;
     place-items: center;
     border-radius: 8px;
-    background: rgba(0, 212, 255, 0.12);
-    color: var(--accent-1);
+    background: var(--blue-soft);
+    color: var(--blue);
     transition: background 0.18s ease, color 0.18s ease;
   }
   .contact:hover .ic {
-    background: rgba(177, 76, 255, 0.2);
-    color: var(--accent-3);
+    background: rgba(91, 127, 255, 0.24);
+    color: var(--blue-2);
   }
   .contact .ic svg { width: 18px; height: 18px; fill: currentColor; }
   .contact .label {
@@ -264,15 +258,14 @@
   .cta svg { width: 18px; height: 18px; fill: currentColor; }
 
   .cta-primary {
-    color: #0a0a0a;
-    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
-    background-size: 200% 200%;
-    box-shadow: 0 10px 28px rgba(177, 76, 255, 0.30);
+    color: #fff;
+    background: var(--blue);
+    box-shadow: 0 10px 28px rgba(91, 127, 255, 0.32);
   }
   .cta-primary:hover {
-    background-position: 100% 50%;
+    background: var(--blue-2);
     transform: translateY(-2px);
-    box-shadow: 0 14px 36px rgba(0, 212, 255, 0.40);
+    box-shadow: 0 14px 36px rgba(91, 127, 255, 0.45);
   }
   .cta-primary:active { transform: translateY(0); }
 
@@ -282,8 +275,8 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
   .cta-secondary:hover {
-    background: rgba(177, 76, 255, 0.10);
-    border-color: rgba(177, 76, 255, 0.5);
+    background: rgba(91, 127, 255, 0.10);
+    border-color: rgba(91, 127, 255, 0.5);
     color: #fff;
   }
 
@@ -297,13 +290,12 @@
     padding: 16px;
     border-radius: 14px;
     text-align: center;
-    color: #0a0a0a;
+    color: #fff;
     font-weight: 700;
     font-size: 15px;
     text-decoration: none;
-    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
-    background-size: 200% 200%;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 22px rgba(177, 76, 255, 0.4);
+    background: var(--blue);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 22px rgba(91, 127, 255, 0.4);
   }
 
   @media (max-width: 720px) {
@@ -323,7 +315,7 @@
       background-position: center 18%;
     }
     .photo::after {
-      background: linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.85) 100%);
+      background: linear-gradient(180deg, rgba(11,16,32,0) 55%, rgba(11,16,32,0.85) 100%);
     }
     .info {
       padding: 24px 22px 110px;
@@ -435,8 +427,8 @@
               <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
             </span>
             <span class="label">
-              <span class="label-top">Мой сайт</span>
-              <span class="label-value">Сайт за 3 дня</span>
+              <span class="label-top">Подробнее</span>
+              <span class="label-value">Об услуге «Сайт за 3 дня» →</span>
             </span>
           </a>
         </li>
