@@ -3,34 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Сайт за 3 дня — сайты для малого бизнеса</title>
-<meta name="description" content="Сайт, который превращает посетителей в клиентов. Сайт-визитка или лендинг для кафе, салона, локальной услуги — за 3 дня от брифа до запуска.">
+<title>Никифоров Евгений — сайты для малого бизнеса за 3 дня</title>
+<meta name="description" content="Запущу сайт для вашего кафе или салона за 3 дня. Понятная цена, телефон и кнопка записи на главном экране. Чтобы клиенты не искали вас в Instagram и сразу приходили.">
 
-<meta property="og:title" content="Сайт за 3 дня — сайты для малого бизнеса">
-<meta property="og:description" content="Сайт-визитка или лендинг для кафе, салона, локальной услуги — за 3 дня. Понятная цена, мобильная версия, кнопка записи.">
+<meta property="og:title" content="Никифоров Евгений — сайты для малого бизнеса">
+<meta property="og:description" content="Запущу сайт для вашего кафе или салона за 3 дня. Чтобы клиенты сразу записывались, а не искали вас в Instagram.">
 <meta property="og:image" content="dgek.jpg">
-<meta property="og:type" content="website">
+<meta property="og:type" content="profile">
 
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg:        #0b1020;
-    --bg-2:      #0e1530;
-    --card:      #141a35;
-    --card-2:    #1a2244;
+    --bg:        #0a0a0a;
+    --bg-soft:   #11121a;
     --line:      rgba(255,255,255,0.08);
-    --line-2:    rgba(255,255,255,0.12);
-    --text:      #f5f6fb;
-    --muted:     #9aa3c2;
-    --muted-2:   #7780a0;
-    --blue:      #5b7fff;
-    --blue-2:    #7c98ff;
-    --blue-soft: rgba(91, 127, 255, 0.14);
-    --green:     #4ade80;
+    --text:      #f0f0f0;
+    --muted:     #8a8a95;
+    --accent-1:  #00d4ff;
+    --accent-2:  #b14cff;
+    --accent-3:  #ff3df0;
   }
-
-  html { scroll-behavior: smooth; }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -38,592 +31,308 @@
     color: var(--text);
     font-size: 16px;
     line-height: 1.55;
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    padding: 32px 20px;
     overflow-x: hidden;
     position: relative;
   }
+
+  .card-wrap {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: safe center;
+    justify-content: center;
+  }
+
   body::before {
     content: "";
-    position: fixed; inset: 0;
-    pointer-events: none; z-index: 0;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
     background:
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(91, 127, 255, 0.18), transparent 60%),
-      radial-gradient(ellipse 60% 40% at 90% 30%, rgba(91, 127, 255, 0.10), transparent 60%);
+      radial-gradient(ellipse at 15% 0%, rgba(0, 212, 255, 0.10), transparent 55%),
+      radial-gradient(ellipse at 85% 100%, rgba(255, 61, 240, 0.08), transparent 55%);
+    z-index: 0;
   }
 
-  .container {
-    position: relative; z-index: 1;
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  /* HEADER */
-  .site-header {
-    position: sticky; top: 0; z-index: 50;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    background: rgba(11, 16, 32, 0.78);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 18px 0;
-  }
-  .logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 17px;
-    color: var(--text);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .logo .dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--blue);
-    box-shadow: 0 0 12px var(--blue);
-  }
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-    margin: 0 auto 0 40px;
-  }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14.5px;
-    font-weight: 500;
-    transition: color 0.18s ease;
-  }
-  .nav-links a:hover { color: var(--text); }
-
-  /* BUTTONS */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 12px 22px;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 14.5px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.18s ease, border-color 0.18s ease;
-    white-space: nowrap;
-  }
-  .btn svg { width: 16px; height: 16px; fill: currentColor; }
-  .btn-primary {
-    background: var(--blue);
-    color: #fff;
-    box-shadow: 0 8px 24px rgba(91, 127, 255, 0.35);
-  }
-  .btn-primary:hover {
-    background: var(--blue-2);
-    transform: translateY(-1px);
-    box-shadow: 0 12px 32px rgba(91, 127, 255, 0.45);
-  }
-  .btn-primary:active { transform: translateY(0); }
-  .btn-ghost {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--line-2);
-    color: var(--text);
-  }
-  .btn-ghost:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(91, 127, 255, 0.45);
-  }
-  .btn-lg {
-    padding: 16px 30px;
-    font-size: 15.5px;
-  }
-
-  /* HERO */
-  .hero { padding: 72px 0 96px; }
-  .hero-grid {
+  .card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1040px;
     display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 56px;
-    align-items: center;
+    grid-template-columns: 5fr 7fr;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    animation: fadeIn 0.6s ease both;
   }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .photo {
+    position: relative;
+    background-image: url("dgek.jpg");
+    background-size: cover;
+    background-position: center 20%;
+    min-height: 100%;
+  }
+  .photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.6) 100%);
+  }
+
+  .info {
+    padding: 44px 44px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
   .eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 7px 16px;
-    border: 1px solid var(--line-2);
-    border-radius: 999px;
-    background: rgba(255,255,255,0.03);
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 28px;
-    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--accent-1);
+    font-weight: 600;
+    margin-bottom: 18px;
   }
-  .eyebrow::before {
+  .eyebrow::after {
     content: "";
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 10px var(--green);
+    width: 28px;
+    height: 1px;
+    background: var(--accent-1);
+    opacity: 0.6;
   }
-  .hero h1 {
-    font-size: clamp(36px, 5.4vw, 64px);
-    font-weight: 800;
-    letter-spacing: -0.025em;
-    line-height: 1.05;
-    margin-bottom: 22px;
-    color: var(--text);
-  }
-  .hero h1 .accent { color: var(--blue); }
-  .hero p.lead {
-    font-size: clamp(16px, 1.4vw, 18px);
-    color: var(--muted);
-    max-width: 520px;
-    margin-bottom: 36px;
-    line-height: 1.6;
-  }
-  .hero-metrics {
-    display: flex;
-    gap: 32px;
-    margin-bottom: 36px;
-    flex-wrap: wrap;
-  }
-  .hero-metrics > div {
-    min-width: 110px;
-  }
-  .hero-metrics b {
-    display: block;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--blue);
-    margin-bottom: 4px;
-  }
-  .hero-metrics span {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-  /* HERO MOCKUP */
-  .mockup {
-    position: relative;
-    background: var(--card);
-    border: 1px solid var(--line-2);
-    border-radius: 18px;
-    padding: 18px;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.45), 0 0 0 1px rgba(91, 127, 255, 0.08);
+  .name {
+    font-size: clamp(30px, 4.4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin-bottom: 10px;
+    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(177, 76, 255, 0.35));
   }
-  .mockup-head {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--line);
+
+  .role {
+    font-size: 15px;
+    color: var(--text);
     margin-bottom: 14px;
-  }
-  .mockup-dots {
-    display: flex; gap: 6px;
-  }
-  .mockup-dots span {
-    width: 11px; height: 11px;
-    border-radius: 50%;
-    display: inline-block;
-  }
-  .mockup-dots span:nth-child(1) { background: #ff5f57; }
-  .mockup-dots span:nth-child(2) { background: #febc2e; }
-  .mockup-dots span:nth-child(3) { background: #28c840; }
-  .mockup-title {
-    font-size: 13px;
-    color: var(--muted);
     font-weight: 500;
   }
-  .mockup-tabs {
-    display: flex;
-    gap: 22px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 14px;
-    padding-bottom: 6px;
+
+  .tagline {
+    font-size: 14.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 42ch;
   }
-  .mockup-tabs span {
+
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+    list-style: none;
+  }
+  .benefit {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .benefit .ic {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: rgba(0, 212, 255, 0.12);
+    color: var(--accent-1);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  .benefit .b-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .benefit .b-desc {
     font-size: 13.5px;
     color: var(--muted);
-    padding-bottom: 8px;
-    position: relative;
-  }
-  .mockup-tabs span.active {
-    color: var(--text);
-    font-weight: 600;
-  }
-  .mockup-tabs span.active::after {
-    content: "";
-    position: absolute;
-    bottom: -7px; left: 0; right: 0;
-    height: 2px;
-    background: var(--blue);
-    border-radius: 2px;
+    line-height: 1.5;
   }
 
-  .mock-card {
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 28px;
+    list-style: none;
+  }
+  .contact {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 14px;
-    border-radius: 12px;
-    background: var(--card-2);
-    border: 1px solid var(--line);
-    margin-bottom: 10px;
-  }
-  .mock-card .ico {
-    flex-shrink: 0;
-    width: 40px; height: 40px;
+    padding: 12px 14px;
+    margin: 0 -14px;
     border-radius: 10px;
-    background: var(--blue-soft);
-    display: grid; place-items: center;
-    font-size: 20px;
-  }
-  .mock-card .meta b {
-    display: block;
-    font-size: 14.5px;
-    font-weight: 600;
-    margin-bottom: 3px;
-  }
-  .mock-card .meta span {
-    font-size: 12.5px;
-    color: var(--muted);
-  }
-  .mock-card .badge {
-    margin-left: auto;
-    padding: 5px 11px;
-    border-radius: 999px;
-    font-size: 11.5px;
-    font-weight: 600;
-    background: var(--blue-soft);
-    color: var(--blue-2);
-  }
-  .mock-card .badge.green {
-    background: rgba(74, 222, 128, 0.15);
-    color: var(--green);
-  }
-  .mock-card .badge.gray {
-    background: rgba(255,255,255,0.06);
-    color: var(--muted);
-  }
-
-  .mock-ai {
-    margin-top: 14px;
-    padding: 14px 16px;
-    border-radius: 12px;
-    background: linear-gradient(180deg, rgba(91, 127, 255, 0.16), rgba(91, 127, 255, 0.06));
-    border: 1px solid rgba(91, 127, 255, 0.32);
-  }
-  .mock-ai .head {
-    display: flex; align-items: center; gap: 8px;
-    color: var(--blue-2);
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .mock-ai .head svg { width: 14px; height: 14px; fill: currentColor; }
-  .mock-ai p {
-    font-size: 13.5px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  /* SECTIONS */
-  .section { padding: 96px 0; }
-  .section-tag {
-    display: inline-block;
-    padding: 5px 13px;
-    border-radius: 999px;
-    background: var(--blue-soft);
-    color: var(--blue-2);
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .section-head { margin-bottom: 56px; max-width: 760px; }
-  .section-head h2 {
-    font-size: clamp(28px, 3.8vw, 44px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 14px;
-  }
-  .section-head p {
-    color: var(--muted);
-    font-size: 17px;
-    line-height: 1.55;
-  }
-
-  /* FEATURES */
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-  }
-  .feature-card {
-    padding: 32px;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-  }
-  .feature-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(91, 127, 255, 0.45);
-    background: var(--card-2);
-  }
-  .feature-card .ic {
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    background: var(--blue-soft);
-    border: 1px solid rgba(91, 127, 255, 0.28);
-    display: grid; place-items: center;
-    color: var(--blue);
-    margin-bottom: 22px;
-  }
-  .feature-card .ic svg {
-    width: 22px; height: 22px;
-    fill: none; stroke: currentColor;
-    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-  }
-  .feature-card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-bottom: 10px;
-  }
-  .feature-card p {
-    color: var(--muted);
-    font-size: 14.5px;
-    line-height: 1.6;
-    margin-bottom: 18px;
-  }
-  .feature-card .more {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--blue);
-    font-size: 14px;
-    font-weight: 600;
+    color: var(--text);
     text-decoration: none;
-    transition: gap 0.18s ease;
+    font-size: 15px;
+    transition: background 0.18s ease;
   }
-  .feature-card .more:hover { gap: 10px; }
-
-  /* PROCESS / STEPS */
-  .steps {
+  .contact:hover {
+    background: rgba(177, 76, 255, 0.08);
+  }
+  .contact .ic {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    list-style: none;
-    counter-reset: steps;
+    place-items: center;
+    border-radius: 8px;
+    background: rgba(0, 212, 255, 0.12);
+    color: var(--accent-1);
+    transition: background 0.18s ease, color 0.18s ease;
   }
-  .steps li {
-    counter-increment: steps;
-    padding: 24px 22px;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    position: relative;
+  .contact:hover .ic {
+    background: rgba(177, 76, 255, 0.2);
+    color: var(--accent-3);
   }
-  .steps li::before {
-    content: "0" counter(steps);
-    display: block;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--blue);
-    margin-bottom: 14px;
-    letter-spacing: 1px;
-  }
-  .steps b {
-    display: block;
-    font-size: 15.5px;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .steps span {
-    color: var(--muted);
-    font-size: 13.5px;
-    line-height: 1.5;
-  }
-
-  /* DEMO */
-  .demo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-  }
-  .demo-card {
-    padding: 28px;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-  }
-  .demo-card h3 {
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 18px;
-  }
-  .dialog {
+  .contact .ic svg { width: 18px; height: 18px; fill: currentColor; }
+  .contact .label {
+    flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 2px;
   }
-  .msg {
+  .contact .label-top {
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .contact .label-value {
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    word-break: break-word;
+  }
+
+  .actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 12px;
-    align-items: flex-start;
-  }
-  .msg .av {
-    flex-shrink: 0;
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    display: grid; place-items: center;
-    font-size: 12.5px;
-    font-weight: 700;
-  }
-  .msg.user .av { background: rgba(255,255,255,0.06); color: var(--muted); }
-  .msg.bot .av { background: var(--blue-soft); color: var(--blue-2); }
-  .msg .bubble {
-    padding: 10px 14px;
-    border-radius: 12px;
-    font-size: 14px;
-    line-height: 1.55;
-    max-width: 100%;
-  }
-  .msg.user .bubble {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--line);
-    color: var(--text);
-  }
-  .msg.bot .bubble {
-    background: var(--blue-soft);
-    border: 1px solid rgba(91, 127, 255, 0.28);
-    color: var(--text);
+    align-self: flex-start;
   }
 
-  /* AUDIENCE */
-  .audience-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-  }
-  .audience-card {
-    padding: 32px;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    transition: transform 0.25s ease, border-color 0.25s ease;
-  }
-  .audience-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(91, 127, 255, 0.45);
-  }
-  .audience-card .ic {
-    font-size: 28px;
-    margin-bottom: 16px;
-    line-height: 1;
-  }
-  .audience-card h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .audience-card p {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  /* FINAL */
-  .final {
-    text-align: center;
-    padding: 96px 0 112px;
-  }
-  .final h2 {
-    font-size: clamp(30px, 4.4vw, 50px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 18px;
-    line-height: 1.1;
-  }
-  .final p {
-    color: var(--muted);
-    font-size: 17px;
-    margin-bottom: 36px;
-    max-width: 540px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .final-actions {
+  .cta {
     display: inline-flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-  }
-
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--line);
-    padding: 32px 0 40px;
-    color: var(--muted);
-  }
-  .foot-row {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-  .foot-links {
-    display: flex;
-    gap: 22px;
-    list-style: none;
-    flex-wrap: wrap;
-  }
-  .foot-links a {
-    color: var(--muted);
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 26px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
     text-decoration: none;
-    font-size: 13.5px;
+    letter-spacing: 0.2px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    cursor: pointer;
   }
-  .foot-links a:hover { color: var(--text); }
-  .foot-row > .copy {
-    font-size: 13px;
-    color: var(--muted-2);
+  .cta svg { width: 18px; height: 18px; fill: currentColor; }
+
+  .cta-primary {
+    color: #0a0a0a;
+    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    background-size: 200% 200%;
+    box-shadow: 0 10px 28px rgba(177, 76, 255, 0.30);
+  }
+  .cta-primary:hover {
+    background-position: 100% 50%;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(0, 212, 255, 0.40);
+  }
+  .cta-primary:active { transform: translateY(0); }
+
+  .cta-secondary {
+    color: var(--text);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .cta-secondary:hover {
+    background: rgba(177, 76, 255, 0.10);
+    border-color: rgba(177, 76, 255, 0.5);
+    color: #fff;
   }
 
-  /* RESPONSIVE */
-  @media (max-width: 980px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .features-grid { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: repeat(2, 1fr); }
-    .demo-grid { grid-template-columns: 1fr; }
-    .audience-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
+  .sticky-mobile {
+    display: none;
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
+    padding: 16px;
+    border-radius: 14px;
+    text-align: center;
+    color: #0a0a0a;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    background-size: 200% 200%;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 22px rgba(177, 76, 255, 0.4);
   }
-  @media (max-width: 600px) {
-    .hero { padding: 48px 0 64px; }
-    .section { padding: 64px 0; }
-    .final { padding: 72px 0 88px; }
-    .steps { grid-template-columns: 1fr; }
-    .actions { flex-direction: column; align-items: stretch; }
-    .btn { width: 100%; }
-    .hero-metrics { gap: 22px; }
-    .feature-card, .demo-card, .audience-card { padding: 24px; }
+
+  @media (max-width: 720px) {
+    body { padding: 0; }
+    .card-wrap { min-height: 100vh; }
+    .card {
+      grid-template-columns: 1fr;
+      border-radius: 0;
+      border: none;
+      min-height: 100vh;
+      box-shadow: none;
+    }
+    .photo {
+      aspect-ratio: 4 / 3;
+      max-height: 46vh;
+      min-height: 0;
+      background-position: center 18%;
+    }
+    .photo::after {
+      background: linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.85) 100%);
+    }
+    .info {
+      padding: 24px 22px 110px;
+    }
+    .tagline { margin-bottom: 22px; font-size: 14px; }
+    .contacts { margin-bottom: 22px; }
+    .actions { width: 100%; }
+    .cta { flex: 1; }
+    .sticky-mobile { display: block; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -636,305 +345,120 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav">
-        <a class="logo" href="#"><span class="dot"></span> Сайт за 3 дня</a>
-        <ul class="nav-links">
-          <li><a href="#features">Возможности</a></li>
-          <li><a href="#process">Как работает</a></li>
-          <li><a href="#demo">Примеры</a></li>
-        </ul>
-        <a class="btn btn-primary" href="https://t.me/evgeny_nikiforov" target="_blank" rel="noopener">Заказать</a>
-      </nav>
-    </div>
-  </header>
+  <div class="card-wrap">
+  <main class="card">
+    <div class="photo" role="img" aria-label="Портрет Никифорова Евгения"></div>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
+    <section class="info">
+      <span class="eyebrow">Сайты для малого бизнеса</span>
+
+      <h1 class="name">Никифоров Евгений</h1>
+
+      <p class="role">Запущу сайт для вашего кафе или салона за 3 дня.</p>
+
+      <p class="tagline">
+        Понятная цена, телефон и адрес на главном экране, кнопка записи. Чтобы клиенты не искали вас в Instagram и сразу приходили.
+      </p>
+
+      <ul class="benefits" aria-label="Преимущества">
+        <li class="benefit">
+          <span class="ic" aria-hidden="true">AI</span>
           <div>
-            <span class="eyebrow">Сайты для малого бизнеса</span>
-            <h1>Сайт, который <span class="accent">превращает посетителей в клиентов</span></h1>
-            <p class="lead">
-              Сайт-визитка или лендинг для кафе, салона, локальной услуги. Понятная цена, мобильная версия, кнопка записи на главном экране — за 3 дня от брифа до запуска.
-            </p>
-            <div class="hero-metrics">
-              <div><b>3 дня</b><span>от брифа<br>до запуска</span></div>
-              <div><b>от 15 000 ₽</b><span>с хостингом<br>и доменом</span></div>
-              <div><b>×3</b><span>дешевле,<br>чем студия</span></div>
-            </div>
-            <div class="actions">
-              <a class="btn btn-primary btn-lg" href="https://t.me/evgeny_nikiforov?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82." target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-                Обсудить проект
-              </a>
-              <a class="btn btn-ghost btn-lg" href="#demo">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                Посмотреть пример
-              </a>
-            </div>
+            <div class="b-title">Скорость за счёт ИИ</div>
+            <div class="b-desc">То, что студия делает месяц, собираю за вечер-выходные — без потери качества.</div>
           </div>
-
-          <!-- MOCKUP -->
-          <div class="mockup" aria-hidden="true">
-            <div class="mockup-head">
-              <div class="mockup-dots"><span></span><span></span><span></span></div>
-              <div class="mockup-title">Сайт за 3 дня — мои проекты</div>
-            </div>
-            <div class="mockup-tabs">
-              <span class="active">Проекты</span>
-              <span>Клиенты</span>
-              <span>Заявки</span>
-            </div>
-
-            <div class="mock-card">
-              <div class="ico">☕</div>
-              <div class="meta">
-                <b>Кафе «Зерно»</b>
-                <span>Меню · контакты · карта</span>
-              </div>
-              <span class="badge green">Запущен</span>
-            </div>
-            <div class="mock-card">
-              <div class="ico">💇</div>
-              <div class="meta">
-                <b>Барбершоп Loft</b>
-                <span>Прайс · мастера · запись</span>
-              </div>
-              <span class="badge">В работе</span>
-            </div>
-            <div class="mock-card">
-              <div class="ico">🛠️</div>
-              <div class="meta">
-                <b>Мастер сантехник</b>
-                <span>Услуги · цены · телефон</span>
-              </div>
-              <span class="badge gray">Брифинг</span>
-            </div>
-
-            <div class="mock-ai">
-              <div class="head">
-                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-                Подсказка
-              </div>
-              <p>Для кафе «Зерно» рекомендую добавить блок «Бронь стола» — клиенты на мобилке быстрее запишутся одной кнопкой.</p>
-            </div>
+        </li>
+        <li class="benefit">
+          <span class="ic" aria-hidden="true">✓</span>
+          <div>
+            <div class="b-title">Меньше ошибок и переделок</div>
+            <div class="b-desc">ИИ находит баги до релиза — стабильный результат с первого захода, без долгих правок.</div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="section" id="features">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-tag">Возможности</span>
-          <h2>Всё, что нужно владельцу — в одном месте</h2>
-          <p>Не «дизайн ради дизайна», а конкретные блоки, которые приводят клиентов и снимают звонки «а во сколько вы открыты».</p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="ic" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
-            </div>
-            <h3>Сайт-визитка</h3>
-            <p>Услуги, цены, контакты, кнопка записи и адрес на карте — на одной странице. Клиент не уходит искать в Instagram.</p>
-            <a class="more" href="#demo">Посмотреть пример →</a>
+        </li>
+        <li class="benefit">
+          <span class="ic" aria-hidden="true">★</span>
+          <div>
+            <div class="b-title">Технологии будущего сегодня</div>
+            <div class="b-desc">Умные чат-боты, автоматизация на нейросетях, генерация контента — то, чего ещё нет у большинства.</div>
           </div>
+        </li>
+      </ul>
 
-          <div class="feature-card">
-            <div class="ic" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            </div>
-            <h3>Лендинг под акцию</h3>
-            <p>Продающая страница для конкретного оффера: новинка меню, скидка, открытие. С формой заявки и счётчиком до конца акции.</p>
-            <a class="more" href="#demo">Посмотреть пример →</a>
-          </div>
-
-          <div class="feature-card">
-            <div class="ic" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="10" x2="6" y2="14"/><line x1="10" y1="10" x2="10" y2="14"/><line x1="14" y1="10" x2="14" y2="14"/><line x1="18" y1="10" x2="18" y2="14"/></svg>
-            </div>
-            <h3>Мобильная версия</h3>
-            <p>80% ваших клиентов смотрят с телефона. Сайт оптимизирован для маленького экрана с самого начала, не «поправим потом».</p>
-            <a class="more" href="#process">Как работает →</a>
-          </div>
-
-          <div class="feature-card">
-            <div class="ic" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <h3>Поддержка и правки</h3>
-            <p>Поменять цену, добавить блок, обновить фото — отвечаю в день обращения. Без долгих созвонов и аккаунт-менеджеров.</p>
-            <a class="more" href="https://t.me/evgeny_nikiforov" target="_blank" rel="noopener">Написать →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="section" id="process">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-tag">Как работает</span>
-          <h2>5 шагов от идеи до запущенного сайта</h2>
-          <p>Чёткие сроки, понятные этапы, без «давайте обсудим на следующей неделе».</p>
-        </div>
-
-        <ol class="steps">
-          <li>
-            <b>Бриф</b>
-            <span>15 минут в чате: что за бизнес, что важно показать, кто клиент.</span>
-          </li>
-          <li>
-            <b>Макет</b>
-            <span>За 1 день собираю первую версию. Показываю на десктопе и мобилке.</span>
-          </li>
-          <li>
-            <b>Правки</b>
-            <span>Меняем тексты, фото, цвета — в день обращения, без задержек.</span>
-          </li>
-          <li>
-            <b>Запуск</b>
-            <span>Подключаем домен, заводим хостинг, сайт открывается всем.</span>
-          </li>
-          <li>
-            <b>Поддержка</b>
-            <span>Дальше правки, обновления и новые блоки — точечно или абонентом.</span>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- DEMO -->
-    <section class="section" id="demo">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-tag">Примеры</span>
-          <h2>Как это выглядит в работе</h2>
-          <p>Два типичных сценария: владелец кафе и владелец барбершопа.</p>
-        </div>
-
-        <div class="demo-grid">
-          <div class="demo-card">
-            <h3>Сайт для нового кафе</h3>
-            <div class="dialog">
-              <div class="msg user">
-                <div class="av">В</div>
-                <div class="bubble">Открываемся через 2 недели, нужен сайт, чтобы можно было найти в Google и забронировать столик.</div>
-              </div>
-              <div class="msg bot">
-                <div class="av">Е</div>
-                <div class="bubble">Сделаем визитку: главный экран с фото, меню по категориям, кнопка «Забронировать стол» через WhatsApp, режим работы и карта. За 3 дня. От 15 000 ₽.</div>
-              </div>
-              <div class="msg user">
-                <div class="av">В</div>
-                <div class="bubble">Можно потом добавить акции?</div>
-              </div>
-              <div class="msg bot">
-                <div class="av">Е</div>
-                <div class="bubble">Да, поддержка 1 500 ₽ за правку — добавляем баннер или отдельный блок, делаю в день обращения.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="demo-card">
-            <h3>Лендинг под открытие барбершопа</h3>
-            <div class="dialog">
-              <div class="msg user">
-                <div class="av">В</div>
-                <div class="bubble">Хочу запустить рекламу к открытию, нужна посадочная под акцию «первая стрижка −30%».</div>
-              </div>
-              <div class="msg bot">
-                <div class="av">Е</div>
-                <div class="bubble">Лендинг с офером, фото мастеров, прайсом, формой записи и счётчиком до конца акции. Адаптивно. От 25 000 ₽, готов за 5 дней.</div>
-              </div>
-              <div class="msg user">
-                <div class="av">В</div>
-                <div class="bubble">Куда падают заявки?</div>
-              </div>
-              <div class="msg bot">
-                <div class="av">Е</div>
-                <div class="bubble">На ваш Telegram или почту. Можем подключить уведомление в момент заявки — 0 задержки.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AUDIENCE -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-tag">Для кого</span>
-          <h2>Делаю для тех, кому сайт нужен «вчера»</h2>
-          <p>Не корпорациям с тендером на полгода, а владельцам, которые сами решают.</p>
-        </div>
-
-        <div class="audience-grid">
-          <div class="audience-card">
-            <div class="ic">☕</div>
-            <h3>Кафе и рестораны</h3>
-            <p>Меню, режим, адрес на карте, бронь столика. Чтобы гость нашёл вас в Google и не ушёл к соседу.</p>
-          </div>
-          <div class="audience-card">
-            <div class="ic">💇</div>
-            <h3>Салоны и барбершопы</h3>
-            <p>Прайс, мастера, кнопка записи, отзывы. Конверсия из «зашёл посмотреть» в «записался» в один клик.</p>
-          </div>
-          <div class="audience-card">
-            <div class="ic">🛠️</div>
-            <h3>Локальные услуги</h3>
-            <p>Сантехник, репетитор, мастер на дом, ремонт техники — простая страница, которую находят в поиске.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="final">
-      <div class="container">
-        <h2>Перестаньте терять клиентов в Instagram</h2>
-        <p>Напишите в Telegram — за 15 минут понимаем, что нужно. За 3 дня запускаем.</p>
-        <div class="final-actions">
-          <a class="btn btn-primary btn-lg" href="https://t.me/evgeny_nikiforov?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82." target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-            Написать в Telegram
+      <ul class="contacts">
+        <li>
+          <a class="contact" href="https://t.me/evgeny_nikiforov?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9!%20%D0%92%D0%B8%D0%B4%D0%B5%D0%BB%20%D0%92%D0%B0%D1%88%D1%83%20%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D1%83%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener">
+            <span class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+            </span>
+            <span class="label">
+              <span class="label-top">Telegram</span>
+              <span class="label-value">@evgeny_nikiforov</span>
+            </span>
           </a>
-          <a class="btn btn-ghost btn-lg" href="tel:+79091193286">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            Позвонить
+        </li>
+        <li>
+          <a class="contact" href="tel:+79091193286">
+            <span class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </span>
+            <span class="label">
+              <span class="label-top">Телефон</span>
+              <span class="label-value">+7 (909) 119-32-86</span>
+            </span>
           </a>
-        </div>
+        </li>
+        <li>
+          <a class="contact" href="mailto:dgekbelki@gmail.com">
+            <span class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </span>
+            <span class="label">
+              <span class="label-top">Почта</span>
+              <span class="label-value">dgekbelki@gmail.com</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="contact" href="https://vk.com/dgek1986" target="_blank" rel="noopener">
+            <span class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13.16 17.66c-5.62 0-9.06-3.93-9.2-10.45h2.86c.1 4.79 2.27 6.82 3.94 7.24V7.21h2.74v4.13c1.6-.18 3.29-2.05 3.86-4.13h2.71c-.43 2.55-2.26 4.42-3.55 5.18 1.29.62 3.37 2.25 4.17 5.27h-2.97c-.62-2-2.16-3.55-4.22-3.76v3.76h-.34z"/></svg>
+            </span>
+            <span class="label">
+              <span class="label-top">ВКонтакте</span>
+              <span class="label-value">vk.com/dgek1986</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="contact" href="landing.html" target="_blank" rel="noopener">
+            <span class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            </span>
+            <span class="label">
+              <span class="label-top">Мой сайт</span>
+              <span class="label-value">Сайт за 3 дня</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="actions">
+        <a class="cta cta-primary" href="https://t.me/evgeny_nikiforov?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          Обсудить проект
+        </a>
+        <a class="cta cta-secondary" href="Nikiforov_Evgeny.vcf" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Сохранить контакт
+        </a>
       </div>
     </section>
   </main>
+  </div>
 
-  <footer>
-    <div class="container">
-      <div class="foot-row">
-        <a class="logo" href="#"><span class="dot"></span> Сайт за 3 дня</a>
-        <ul class="foot-links">
-          <li><a href="#features">Возможности</a></li>
-          <li><a href="#process">Как работает</a></li>
-          <li><a href="#demo">Примеры</a></li>
-          <li><a href="https://t.me/evgeny_nikiforov" target="_blank" rel="noopener">Telegram</a></li>
-          <li><a href="https://vk.com/dgek1986" target="_blank" rel="noopener">VK</a></li>
-          <li><a href="mailto:dgekbelki@gmail.com">Email</a></li>
-          <li><a href="Nikiforov_Evgeny.vcf" download>Контакт</a></li>
-        </ul>
-      </div>
-      <div class="foot-row" style="margin-top: 18px;">
-        <span class="copy">© 2026 Сайт за 3 дня · Никифоров Евгений</span>
-        <span class="copy">+7 (909) 119-32-86</span>
-      </div>
-    </div>
-  </footer>
+  <a class="sticky-mobile" href="https://t.me/evgeny_nikiforov?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82." target="_blank" rel="noopener" aria-label="Написать в Telegram">
+    Написать в Telegram
+  </a>
 
 </body>
 </html>
