@@ -34,12 +34,6 @@ Nikiforov_Evgeny/
 ├── landing.html             ← лендинг «Никифоров.Code»
 ├── Nikiforov_Evgeny.vcf     ← vCard (UTF-8, без BOM)
 ├── dgek.jpg                 ← фото
-├── prompts/                 ← промты (зеркало Documents/prompts/Nikiforov_Evgeny/)
-│   ├── 01_vizitka.md
-│   ├── 02_benefits.md
-│   ├── 03_landing.md            ← промт лендинга «Никифоров.Code»
-│   ├── 04_vizitka_starter.md    ← стартовый шаблон визитки
-│   └── 05_landing_starter.md    ← стартовый шаблон лендинга
 └── research/                ← аудиты, заметки
     ├── vizitka_audit_2026-05-09.md
     └── vizitka_critique_client_pov_2026-05-09.md
